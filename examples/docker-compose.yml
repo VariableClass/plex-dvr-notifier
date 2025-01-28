@@ -1,0 +1,19 @@
+---
+
+name: plex-dvr-notifier
+
+services:
+  server:
+    name: plex-dvr-notifier
+    image: plex-dvr-notifier:latest
+    environment:
+      - PLEX_SERVER_URL=${PLEX_SERVER_URL}
+      - PLEX_TOKEN=${PLEX_TOKEN}
+      - NTFY_SERVER_URL=${NTFY_SERVER_URL}
+      - NTFY_TOPIC_ERROR=${NTFY_TOPIC_ERROR}
+      - NTFY_TOPIC_RECORDING=${NTFY_TOPIC_RECORDING}
+    restart: always
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
